@@ -24,10 +24,16 @@ public class CategoryController {
         return categoryService.create(dto);
     }
 
-    @PutMapping("/admin/{id}")
-    public CategoryDTO update(@PathVariable("id") Integer id, @RequestBody CategoryDTO dto) {
-        return new ResponseEntity<>(categoryService.update(id, dto), HttpStatus.OK);
+//    @PutMapping("/admin/{id}")
+//    public ResponseEntity<CategoryDTO> update(@PathVariable("id") Integer id, @RequestBody CategoryDTO dto) {
+//        return new ResponseEntity<>(categoryService.update(id, dto), HttpStatus.OK);
+//    }
+
+    @PutMapping("/admin")
+    public ResponseEntity<CategoryDTO> update(@RequestBody CategoryDTO dto) {
+        return new ResponseEntity<>(categoryService.update(dto), HttpStatus.OK);
     }
+
 
     @DeleteMapping("/admin/{id}")
     public void delete(@PathVariable Integer id) {

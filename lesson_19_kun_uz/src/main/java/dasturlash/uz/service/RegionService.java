@@ -7,8 +7,6 @@ import dasturlash.uz.repository.RegionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.swing.plaf.synth.Region;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -32,7 +30,7 @@ public class RegionService {
         return dto;
     }
 
-    public RegionDTO update(RegionDTO dto) {
+    public RegionDTO update(Integer id, RegionDTO dto) {
         Optional<RegionEntity> optional = regionRepository.findById(dto.getId());
         if (optional.isEmpty()) {
             return null;

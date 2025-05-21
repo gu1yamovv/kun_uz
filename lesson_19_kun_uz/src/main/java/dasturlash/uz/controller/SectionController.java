@@ -25,10 +25,16 @@ public class SectionController {
         return sectionService.create(dto);
     }
 
-    @PutMapping("/admin/{id}")
-    public SectionDTO update(@PathVariable("id") Integer id, @RequestBody SectionDTO dto) {
-        return new ResponseEntity<>(sectionService.update(id, dto), HttpStatus.OK);
+//    @PutMapping("/admin/{id}")
+//    public ResponseEntity<SectionDTO> update(@PathVariable("id") Integer id, @RequestBody SectionDTO dto) {
+//        return new ResponseEntity<>(sectionService.update(id, dto), HttpStatus.OK);
+//    }
+
+    @PutMapping("/admin")
+    public ResponseEntity<SectionDTO> update(@RequestBody SectionDTO dto) {
+        return new ResponseEntity<>(sectionService.update(dto), HttpStatus.OK);
     }
+
 
     @DeleteMapping("/admin/{id}")
     public void delete(@PathVariable Integer id) {

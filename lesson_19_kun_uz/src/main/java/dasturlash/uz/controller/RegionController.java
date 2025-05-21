@@ -25,7 +25,7 @@ public class RegionController {
     }
 
     @PutMapping("/admin/{id}")
-    public RegionDTO update(@PathVariable("id") Integer id, @RequestBody RegionDTO dto) {
+    public ResponseEntity<RegionDTO> update(@PathVariable("id") Integer id, @RequestBody RegionDTO dto) {
         return new ResponseEntity<>(regionService.update(id,dto), HttpStatus.OK);
     }
 
